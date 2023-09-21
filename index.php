@@ -12,7 +12,9 @@
     <map name="pomiary">
         <area shape="circle" coords="100,100,20" alt="1" >
     </map>
-    <img src="wykres.php" usemap="pomiary" />
+    <?php 
+        echo "<img src='wykres.php?nazwa=", isset($_GET["nazwa"])?$_GET["nazwa"]:"temperatura", "' >"; 
+    ?>
 </body>
 
 </html>

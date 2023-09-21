@@ -48,7 +48,7 @@ for($i = 0; $i<28; $i++){
 $txt1 = "dzien miesiaca";
 $txt2 = mb_convert_encoding($txt1, "UTF-8"); // ENCODE ??
 imagestring($im, 3, ($width-100)/2, $height-20, $txt2, $textcolor);
-imagestringup($im, 3, 2, ($height+50)/2, 'temperatura', $textcolor);
+imagestringup($im, 3, 2, ($height+50)/2, $_GET["nazwa"], $textcolor);
 
 // ---
 
