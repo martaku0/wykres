@@ -51,10 +51,11 @@ for($i = 0; $i<28; $i++){
 }
 
 // text
-$txt1 = "dzien miesiaca";
-$txt2 = mb_convert_encoding($txt1, "UTF-8"); // ENCODE ??
-imagestring($im, 3, ($width-100)/2, $height-20, $txt2, $textcolor);
-imagestringup($im, 3, 2, ($height+50)/2, "temperatura", $textcolor);
+$txt1 = "dzień miesiąca";
+$font = "tcpdf/fonts/open-sans-ttf/OpenSans-Bold.ttf";
+imagettftext($im, 8, 0, ($width-100)/2, $height-20, $textcolor, $font, $txt1);
+$txt2 = "temperatura";
+imagettftext($im, 8, 90, 10, ($height+50)/2, $textcolor, $font, $txt2);
 
 // ---
 
@@ -64,7 +65,9 @@ $col_ellipse = imagecolorallocate($im, 0, 0, 255);
 
 // connect to database
 
-$link = mysqli_connect("localhost", "root", "", "wykres");
+// $link = mysqli_connect("localhost", "root", "", "wykres");
+include("data.php");
+$link = mysqli_connect($host, $user, $pass, $db);
 if($link){
 
     $query = "SELECT * FROM pomiary";
